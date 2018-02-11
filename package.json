@@ -1,7 +1,9 @@
 {
 	"name": "react-vtabs",
 	"description": "Vertical tabs in React using overridable inline styles.",
-	"version": "0.0.1",
+	"version": "0.0.4",
+	"repository": "https://github.com/cprebble/react-vtabs",
+	"main": "dist/bundle.js",
 	"scripts": {
 		"clean": "rm -rf dist",
 		"lint": "eslint \"{./**/*.js,./**/*.jsx}\" --quiet",
