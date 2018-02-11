@@ -40,7 +40,6 @@
 		"react-dom": "^16.2.0"
 	},
 	"dependencies": {
-		"babel-polyfill": "^6.26.0",
 		"babel-register": "^6.26.0",
 		"prop-types": "^15.6.0",
 		"react": "^16.2.0",
