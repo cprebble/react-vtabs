@@ -9,7 +9,9 @@
 		"clean": "rm -rf dist",
 		"lint": "eslint \"{./**/*.js,./**/*.jsx}\" --quiet",
 		"build": "yarn clean && webpack",
-		"prepare": "yarn build"
+		"prepare": "yarn build",
+		"test": "mocha --require babel-core/register --require ./test/mocha-setup.js \"./src/**/*.spec.{js,jsx}\"",
+		"test-watch": "yarn test --watch --watch-extensions jsx"
 	},
 	"devDependencies": {
 		"babel-cli": "^6.24.1",
@@ -18,12 +20,18 @@
 		"babel-preset-es2015": "^6.24.1",
 		"babel-preset-react": "^6.24.1",
 		"babel-preset-stage-0": "^6.24.1",
+		"chai": "^4.1.2",
+		"enzyme": "^3.3.0",
+		"enzyme-adapter-react-16": "^1.1.1",
 		"eslint": "^3.19.0",
 		"eslint-config-standard": "^11.0.0-beta.0",
 		"eslint-plugin-node": "^5.2.1",
 		"eslint-plugin-react": "^7.5.1",
 		"eslint-plugin-standard": "^3.0.1",
 		"html-webpack-plugin": "^2.30.1",
+		"jsdom": "^11.6.2",
+		"mocha": "^5.0.0",
+		"react-addons-test-utils": "^15.6.2",
 		"webpack": "^3.11.0"
 	},
 	"peerDependencies": {
@@ -32,6 +40,8 @@
 		"react-dom": "^16.2.0"
 	},
 	"dependencies": {
+		"babel-polyfill": "^6.26.0",
+		"babel-register": "^6.26.0",
 		"prop-types": "^15.6.0",
 		"react": "^16.2.0",
 		"react-dom": "^16.2.0"

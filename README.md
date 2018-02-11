@@ -48,8 +48,6 @@ renderDOM(
 );
 ```
 
-A single node is allowed as content.
-
 ## Properties
 
 * style -  root style, available on both VTabs and VTab

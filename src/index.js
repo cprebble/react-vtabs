@@ -1,1 +1,2 @@
-export { VTabs, VTab } from './vertical-tabs.component';
+export VTabs from './vertical-tabs.component';
+export VTab from './vertical-tab.component';

@@ -1,11 +1,15 @@
 import React from 'react';
 import * as PropTypes from 'prop-types';
+import VTab from './vertical-tab.component';
 
 const DEFAULT_WIDTH = 100;
 
 class VTabs extends React.Component {
 	static propTypes = {
-		children: PropTypes.arrayOf(PropTypes.node),
+		children: PropTypes.oneOfType([
+			PropTypes.arrayOf(PropTypes.node),
+			PropTypes.node
+		]).isRequired,
 		style: PropTypes.object,
 		value: PropTypes.number,
 		tabContainerStyle: PropTypes.object,
@@ -58,9 +62,11 @@ class VTabs extends React.Component {
 
 	renderTabs = () => {
 		const { children } = this.props;
+		const childrenArray = React.Children.toArray(children);
+	
 		return (
 			<div>
-				{children.map((child, ii) => {
+				{childrenArray.map((child, ii) => {
 					return this.renderTabLabel(child, ii);
 				})}
 			</div>
@@ -94,6 +100,7 @@ class VTabs extends React.Component {
 
 	render () {
 		const { style } = this.props;
+
 		const comboStyle = {
 			...style,
 			...{
@@ -111,19 +118,5 @@ class VTabs extends React.Component {
 	}
 }
 
-function VTab (props) {
-	const { style } = props;
-	return (
-		<div style={style}>
-			{props.children}
-		</div>
-	);
-}
-
-VTab.propTypes = {
-	style: PropTypes.object,
-	children: PropTypes.node
-}
-
-export { VTabs, VTab };
+export default VTabs;
 
