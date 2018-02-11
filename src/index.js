@@ -1,0 +1,1 @@
+export { VTabs, VTab } from './vertical-tabs.component';
