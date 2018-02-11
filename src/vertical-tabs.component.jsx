@@ -1,21 +1,23 @@
 import React from 'react';
-
-type TabsProps = {
-	style: Object;
-	tabContainerStyle: Object;
-	tabLabelStyle: Object;
-	inkBarStyle: Object;
-	children: Array;
-	value: number;
-};
+import PropTypes from 'prop-types';
 
 const DEFAULT_WIDTH = 100;
+
 class VTabs extends React.Component<TabsProps> {
 	constructor (props) {
 		super(props);
 
 		this.state = { selected: props.value || 0 };
 	}
+
+	propTypes = {
+		children: PropTypes.arrayOf(PropTypes.node),
+		styles: PropTypes.object,
+		value: PropTypes.number,
+		tabContainerStyle: PropTypes.object,
+		tabLabelStyle: PropTypes.object,
+		inkBarStyle: PropTypes.object
+	};
 
 	onClick = (index) => {
 		this.setState({ selected: index });
@@ -106,17 +108,18 @@ class VTabs extends React.Component<TabsProps> {
 	}
 }
 
-type TabProps = {
-	style: Object;
-	children: Array;
-}
-function VTab (props: TabProps) {
+function VTab (props) {
 	const { style } = props;
 	return (
 		<div style={style}>
 			{props.children}
 		</div>
 	);
+}
+
+VTab.propTypes = {
+	style: PropTypes.object,
+	children: PropTypes.arrayOf(PropTypes.node)
 }
 
 export { VTabs, VTab };

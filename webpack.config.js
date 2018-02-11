@@ -1,20 +1,15 @@
-const webpack = require('webpack');
 const path = require('path');
 const HtmlPlugin = require('html-webpack-plugin')
 
 module.exports = {
 	devtool: 'source-map',
-	entry: path.join(__dirname, 'examples'),
+	entry: path.join(__dirname, 'src'),
 	output: {
 		filename: 'bundle.js',
 		path: path.join(__dirname, 'dist'),
+		
 	},
 	module: {
-		// loaders: [{
-		// 	test: /\.jsx$/,
-		// 	exclude: /node_modules/,
-		// 	loader: 'babel-loader'
-		// }]
 		rules: [
             {
                 test: /.jsx?$/,
@@ -35,12 +30,12 @@ module.exports = {
                             ],
                         }
                     }
-                ]
+				]
 			}
 		]
 	},
 	resolve: {
-		extensions: ['.js', '.jsx']
+		extensions: ['.jsx', '.js']
 	},
 	plugins: [
 		// Configure HtmlPlugin to use our own index.html file
