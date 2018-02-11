@@ -20,25 +20,24 @@ import { VTabs, VTab } from 'react-vtabs';
 class App extends Component {
   render() {
     return (
-      <Tabs
-        defaultTab="one"
-        onChange={(tabId) => { console.log(tabId) }}
-      >
-        <TabList>
-          <Tab tabFor="one">Tab 1</Tab>
-          <Tab tabFor="two">Tab 2</Tab>
-          <Tab tabFor="three">Tab 3</Tab>
-        </TabList>
-        <TabPanel tabId="one">
-          <p>Tab 1 content</p>
-        </TabPanel>
-        <TabPanel tabId="two">
-          <p>Tab 2 content</p>
-        </TabPanel>
-        <TabPanel tabId="three">
-          <p>Tab 3 content</p>
-        </TabPanel>
-      </Tabs>
+      <VTabs
+		tabContainerStyle={{ marginLeft: 20 }}
+		tabLabelStyle={{ width: 50 }}
+		inkBarStyle={{ backgroundColor:"orange", width: 4 }}>
+		<VTab label="t1">
+			<div><p>hi1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed accumsan nibh dapibus, varius leo a, posuere mauris. Vivamus mattis, erat vel finibus condimentum, purus justo fringilla lorem, vitae lobortis neque arcu eu est. Ut pretium rutrum turpis, vel tempus turpis viverra nec.</p>
+			<p>Ut viverra sed arcu euismod maximus. Pellentesque ultrices, nisi at consectetur tempor, orci enim interdum ex, vitae congue lorem massa vitae mauris.</p></div>
+		</VTab>
+		<VTab label="t2">
+			<div>hi2 Vivamus mattis, erat vel finibus condimentum, purus justo fringilla lorem, vitae lobortis neque arcu eu est. Ut pretium rutrum turpis, vel tempus turpis viverra nec</div>
+		</VTab>
+		<VTab label="t3">
+			<div>
+				<p>hi3 Nulla eget malesuada diam. Aliquam condimentum scelerisque odio, non consequat diam sodales fermentum. Vestibulum et congue leo. Duis tincidunt metus eu ullamcorper lacinia. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
+				<p>Pellentesque condimentum placerat ipsum sit amet bibendum. Vestibulum mattis magna et interdum aliquam.</p>
+			</div>
+		</VTab>
+	</VTabs>
     );
   }
 }
@@ -49,6 +48,22 @@ renderDOM(
 );
 ```
 
+A single node is allowed as content.
+
+## Properties
+
+* style -  root style, available on both VTabs and VTab
+
+#### VTabs properties
+* tabContainerStyle - the style of the tab content container
+
+* tabLabelStyle - style of the label section
+
+* inkBarStyle - the color, width, border, etc of the `selected` indicator
+
+* value - define the inital selected tab (zero based)
+
 # Examples
 
-* [Basic tabs](basic.md)
+* node_modules/react-vtabs/dist/index.html
+

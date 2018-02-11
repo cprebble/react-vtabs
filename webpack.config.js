@@ -1,4 +1,5 @@
 const path = require('path');
+const HtmlPlugin = require('html-webpack-plugin')
 
 module.exports = [
 	{
@@ -53,5 +54,43 @@ module.exports = [
 		resolve: {
 			extensions: ['.js', '.jsx']
 		}
+	},
+	{
+		entry: {
+			'react-vtabs-examples': path.join(__dirname, 'examples/index.js')
+		},
+		output: {
+			path: path.join(__dirname, 'dist'),
+			filename: 'react-vtabs-examples.js',
+		},
+		module: {
+			rules: [
+				{
+					test: /.jsx?$/,
+					exclude: /node_modules/,
+					include: [
+						path.join(__dirname, 'src'),
+						path.join(__dirname, 'examples')
+					],
+					use: [
+						{
+							loader: 'babel-loader',
+							options: {
+								babelrc: false,
+								presets: ['es2015', 'react', 'stage-0'],
+							}
+						}
+					]
+				}
+			]
+		},
+		resolve: {
+			extensions: ['.js', '.jsx']
+		},
+		plugins: [
+			new HtmlPlugin({
+				template: 'examples/index.html'
+			})
+		]
 	}
 ];

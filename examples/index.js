@@ -1,5 +1,5 @@
-import Example from './basic';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Examples from './examples';
 
-ReactDOM.render(<Example />, document.getElementById('react-root'));
+ReactDOM.render(<Examples />, document.getElementById('react-root'));

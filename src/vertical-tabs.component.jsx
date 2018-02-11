@@ -26,7 +26,7 @@ class VTabs extends React.Component {
 	renderTabLabel = (tab, index) => {
 		const { tabLabelStyle, inkBarStyle } = this.props;
 		const borderWidth = (inkBarStyle && inkBarStyle.width) || 4;
-		const borderColor = (inkBarStyle && inkBarStyle.backgroundColor) || 'gray';
+		const borderColor = (inkBarStyle && inkBarStyle.backgroundColor) || 'darkslategray';
 		const borderStyle = (inkBarStyle && inkBarStyle.borderStyle) || 'solid';
 		const tabWidth = (tabLabelStyle && tabLabelStyle.width) || DEFAULT_WIDTH;
 		const lineHeight = (tabLabelStyle && tabLabelStyle.lineHeight) || '34px';
@@ -59,7 +59,7 @@ class VTabs extends React.Component {
 	renderTabs = () => {
 		const { children } = this.props;
 		return (
-			<div >
+			<div>
 				{children.map((child, ii) => {
 					return this.renderTabLabel(child, ii);
 				})}
@@ -70,14 +70,17 @@ class VTabs extends React.Component {
 	renderContent = () => {
 		const { tabLabelStyle, tabContainerStyle, children } = this.props;
 		const { selected } = this.state;
-		const contentLeft = (tabLabelStyle && tabLabelStyle.width) || DEFAULT_WIDTH;
+		const overrideWidth = (tabContainerStyle && tabContainerStyle.width) || '90%';
 
 		const comboStyle = {
 			...tabContainerStyle,
 			...{
 				position: 'absolute',
 				alignSelf: 'flex-end',
-				left: contentLeft
+				float: 'right'
+			},
+			...{
+				width: overrideWidth
 			}
 		};
 

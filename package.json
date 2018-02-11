@@ -4,6 +4,7 @@
 	"version": "0.0.5",
 	"repository": "https://github.com/cprebble/react-vtabs",
 	"main": "dist/react-vtabs.js",
+	"author": "Carrie Prebble",
 	"scripts": {
 		"clean": "rm -rf dist",
 		"lint": "eslint \"{./**/*.js,./**/*.jsx}\" --quiet",
@@ -34,5 +35,14 @@
 		"prop-types": "^15.6.0",
 		"react": "^16.2.0",
 		"react-dom": "^16.2.0"
+	},
+	"keywords": [
+		"react",
+		"vertical tabs",
+		"inline styles"
+	],
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/cprebble/react-vtabs/issues"
 	}
 }
