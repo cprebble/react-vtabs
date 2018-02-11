@@ -1,23 +1,23 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import * as PropTypes from 'prop-types';
 
 const DEFAULT_WIDTH = 100;
 
-class VTabs extends React.Component<TabsProps> {
-	constructor (props) {
-		super(props);
-
-		this.state = { selected: props.value || 0 };
-	}
-
-	propTypes = {
+class VTabs extends React.Component {
+	static propTypes = {
 		children: PropTypes.arrayOf(PropTypes.node),
-		styles: PropTypes.object,
+		style: PropTypes.object,
 		value: PropTypes.number,
 		tabContainerStyle: PropTypes.object,
 		tabLabelStyle: PropTypes.object,
 		inkBarStyle: PropTypes.object
 	};
+	
+	constructor (props) {
+		super(props);
+
+		this.state = { selected: props.value || 0 };
+	}
 
 	onClick = (index) => {
 		this.setState({ selected: index });
@@ -119,7 +119,7 @@ function VTab (props) {
 
 VTab.propTypes = {
 	style: PropTypes.object,
-	children: PropTypes.arrayOf(PropTypes.node)
+	children: PropTypes.node
 }
 
 export { VTabs, VTab };

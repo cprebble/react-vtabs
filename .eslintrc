@@ -8,10 +8,6 @@
 	  "jest": true
 	},
   
-	"globals": {
-  
-	},
-  
 	"parserOptions": {
 	  "ecmaVersion": 7,
 	  "sourceType": "module",
@@ -27,6 +23,6 @@
   
 	"rules": {
 	  "no-multiple-empty-lines": ["error", {"max": 2}],
-	  "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+	  "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
 	}
   }
