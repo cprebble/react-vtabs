@@ -31,7 +31,7 @@ class App extends Component {
 		<VTab label="t2">
 			<div>hi2 Vivamus mattis, erat vel finibus condimentum, purus justo fringilla lorem, vitae lobortis neque arcu eu est. Ut pretium rutrum turpis, vel tempus turpis viverra nec</div>
 		</VTab>
-		<VTab label="t3">
+		<VTab label="t3" tabContainerStyle={{ backgroundColor: 'rgba(255, 165, 0, 0.5)' }}>
 			<div>
 				<p>hi3 Nulla eget malesuada diam. Aliquam condimentum scelerisque odio, non consequat diam sodales fermentum. Vestibulum et congue leo. Duis tincidunt metus eu ullamcorper lacinia. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
 				<p>Pellentesque condimentum placerat ipsum sit amet bibendum. Vestibulum mattis magna et interdum aliquam.</p>
@@ -53,13 +53,20 @@ renderDOM(
 * style -  root style, available on both VTabs and VTab
 
 #### VTabs properties
-* tabContainerStyle - the style of the tab content container
+* tabContainerStyle - optional style of the tab content container
 
-* tabLabelStyle - style of the label section
+* tabLabelStyle - optional style of the label section
 
-* inkBarStyle - the color, width, border, etc of the `selected` indicator
+* inkBarStyle - optional, the color, width, border, etc of the `selected` indicator
 
-* value - define the inital selected tab (zero based)
+* value - optionally define the inital selected tab (zero based)
+
+#### VTab properties
+* label - is required
+
+* tabContainerStyle - optional overridding style of this tab's content section
+
+* tabLabelStyle - optional overridding style of this tab's label section
 
 # Examples
 

@@ -26,7 +26,14 @@ const citiesOfCulture = [
 	{
 		id: "moab",
 		name: "Moab",
-		description: "Moab is the capital of mountain biking."
+		description: "Moab is the capital of mountain biking.",
+		tabLabelStyle: {
+			fontSize: 24,
+			fontStyle: 'italic'
+		},
+		tabContainerStyle: {
+			backgroundColor: 'blue'
+		}
 	}
 ];
 
@@ -52,10 +59,11 @@ export default class Cities extends React.Component {
 				value={0}
 			>
 				{citiesOfCulture.map((edge, ii) => {
+					const { id, name, description, ...extraProps } = edge;
 					return (
-						<VTab key={edge.id} value={ii} label={edge.name}>
+						<VTab key={id} value={ii} label={name} {...extraProps}>
 							<div style={{ margin: 12, display: 'flex', justifyContent: 'center' }}>
-								{edge.description}
+								{description}
 							</div>
 						</VTab>
 					);

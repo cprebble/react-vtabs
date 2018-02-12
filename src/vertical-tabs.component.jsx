@@ -34,9 +34,9 @@ class VTabs extends React.Component {
 
 		const tabWidth = (tabLabelStyle && tabLabelStyle.width) || DEFAULT_WIDTH;
 		const lineHeight = (tabLabelStyle && tabLabelStyle.lineHeight) || '34px';
-
 		
 		const indicator = { borderRight: `${borderWidth}px ${borderStyle} ${borderColor}`};
+		const independentTabLabelStyles = tab.props.tabLabelStyle;
 
 		let comboStyle = {
 			textAlign: 'center',
@@ -48,6 +48,7 @@ class VTabs extends React.Component {
 				minHeight: 34
 			},
 			...tabLabelStyle,
+			...independentTabLabelStyles
 		};
 
 		if (this.state.selected === index) {
@@ -67,7 +68,7 @@ class VTabs extends React.Component {
 	renderTabs = () => {
 		const { children } = this.props;
 		const childrenArray = React.Children.toArray(children);
-	
+
 		return (
 			<div>
 				{childrenArray.map((child, ii) => {
@@ -77,10 +78,12 @@ class VTabs extends React.Component {
 		);
 	}
 
-	renderContent = () => {
+	renderTabContent = () => {
 		const { tabContainerStyle, children } = this.props;
 		const { selected } = this.state;
-		const overrideWidth = (tabContainerStyle && tabContainerStyle.width) || '90%';
+		const overrideWidth = (tabContainerStyle && tabContainerStyle.width) || '80%';
+
+		const independentTabContainerStyles = (children[selected] && children[selected].props && children[selected].props.tabContainerStyle);
 
 		const comboStyle = {
 			...tabContainerStyle,
@@ -91,7 +94,8 @@ class VTabs extends React.Component {
 			},
 			...{
 				width: overrideWidth
-			}
+			},
+			...independentTabContainerStyles
 		};
 
 		return (
@@ -116,7 +120,7 @@ class VTabs extends React.Component {
 			<div
 				style={comboStyle}>
 				{this.renderTabs()}
-				{this.renderContent()}
+				{this.renderTabContent()}
 			</div>
 		);
 	}

@@ -13,7 +13,8 @@ function VTab (props) {
 
 VTab.propTypes = {
 	style: PropTypes.object,
-	children: PropTypes.node.isRequired
+	children: PropTypes.node.isRequired,
+	label: PropTypes.string.isRequired
 }
 
 export default VTab;
