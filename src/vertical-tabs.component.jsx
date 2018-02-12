@@ -31,24 +31,27 @@ class VTabs extends React.Component {
 		const borderWidth = (inkBarStyle && inkBarStyle.width) || 4;
 		const borderColor = (inkBarStyle && inkBarStyle.backgroundColor) || 'darkslategray';
 		const borderStyle = (inkBarStyle && inkBarStyle.borderStyle) || 'solid';
+
 		const tabWidth = (tabLabelStyle && tabLabelStyle.width) || DEFAULT_WIDTH;
 		const lineHeight = (tabLabelStyle && tabLabelStyle.lineHeight) || '34px';
 
-		const comboStyle = {
+		
+		const indicator = { borderRight: `${borderWidth}px ${borderStyle} ${borderColor}`};
+
+		let comboStyle = {
 			textAlign: 'center',
 			lineHeight: lineHeight,
 			...{
-				borderRight: '1px solid lightgray'
-			},
-			...tabLabelStyle,
-			...{
+				borderRight: '1px solid lightgray',
 				width: tabWidth,
 				minWidth: 34,
 				minHeight: 34
-			}
+			},
+			...tabLabelStyle,
 		};
+
 		if (this.state.selected === index) {
-			comboStyle.borderRight = `${borderWidth}px ${borderStyle} ${borderColor}`;
+			comboStyle = Object.assign(comboStyle, indicator);
 		}
 
 		return (
