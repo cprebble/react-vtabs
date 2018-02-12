@@ -38,7 +38,8 @@ const tabLabelStyle = {
 	textAlign: 'right',
 	fontFamily: 'Roboto, Helvetica Neue, Arial, sans-serif',
 	fontSize: 18,
-	fontWeight: 'bold'
+	fontWeight: 'bold',
+	background: 'linear-gradient(-170deg, white, lightgray)'
 }
 export default class Cities extends React.Component {
 	render () {

@@ -2,7 +2,6 @@
 process.env.NODE_ENV = 'test';
 
 const { JSDOM } = require('jsdom');
-const chai = require('chai');
 
 require('babel-register');
 

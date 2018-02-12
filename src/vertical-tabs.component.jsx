@@ -1,6 +1,5 @@
 import React from 'react';
 import * as PropTypes from 'prop-types';
-import VTab from './vertical-tab.component';
 
 const DEFAULT_WIDTH = 100;
 
@@ -38,9 +37,11 @@ class VTabs extends React.Component {
 		const comboStyle = {
 			textAlign: 'center',
 			lineHeight: lineHeight,
+			...{
+				borderRight: '1px solid lightgray'
+			},
 			...tabLabelStyle,
 			...{
-				borderRight: '1px solid lightgray',
 				width: tabWidth,
 				minWidth: 34,
 				minHeight: 34
@@ -74,7 +75,7 @@ class VTabs extends React.Component {
 	}
 
 	renderContent = () => {
-		const { tabLabelStyle, tabContainerStyle, children } = this.props;
+		const { tabContainerStyle, children } = this.props;
 		const { selected } = this.state;
 		const overrideWidth = (tabContainerStyle && tabContainerStyle.width) || '90%';
 

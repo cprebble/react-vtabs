@@ -64,7 +64,6 @@ describe('VTabs Component', () => {
 });
 
 const pageObject = (component) => {
-	const instance = component.instance();
 
 	return {
 		findStyle: () => component.find('div').at(0).prop('style'),
@@ -72,4 +71,3 @@ const pageObject = (component) => {
 		
 	};
 };
-	

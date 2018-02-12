@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Basic from './basic';
 import Cities from './cities';
 import { VTabs, VTab } from '../src/index';
