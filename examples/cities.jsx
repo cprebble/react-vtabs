@@ -52,7 +52,7 @@ export default class Cities extends React.Component {
 	render () {
 		return (
 			<VTabs
-				inkBarStyle={{ width: 6, backgroundColor: 'cornflowerblue' }}
+				inkBarStyle={{ borderWidth: 6, borderColor: 'cornflowerblue' }}
 				tabLabelStyle={tabLabelStyle}
 				tabContainerStyle={{ width: `calc(90% - ${TAB_WIDTH}px)`, height: '100%' }}
 				style={{ margin: 10, padding: 24, height: '60vh', backgroundColor: 'lightgray' }}

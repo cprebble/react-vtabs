@@ -28,14 +28,14 @@ class VTabs extends React.Component {
 
 	renderTabLabel = (tab, index) => {
 		const { tabLabelStyle, inkBarStyle } = this.props;
-		const borderWidth = (inkBarStyle && inkBarStyle.width) || 4;
-		const borderColor = (inkBarStyle && inkBarStyle.backgroundColor) || 'darkslategray';
+		const borderWidth = (inkBarStyle && inkBarStyle.borderWidth) || 4;
+		const borderColor = (inkBarStyle && inkBarStyle.borderColor) || 'darkslategray';
 		const borderStyle = (inkBarStyle && inkBarStyle.borderStyle) || 'solid';
 
 		const tabWidth = (tabLabelStyle && tabLabelStyle.width) || DEFAULT_WIDTH;
 		const lineHeight = (tabLabelStyle && tabLabelStyle.lineHeight) || '34px';
 		
-		const indicator = { borderRight: `${borderWidth}px ${borderStyle} ${borderColor}`};
+		const indicator = {...inkBarStyle, ...{ borderRight: `${borderWidth}px ${borderStyle} ${borderColor}` }};
 		const individualTabLabelStyles = tab.props.tabLabelStyle;
 
 		let comboStyle = {

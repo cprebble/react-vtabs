@@ -117,7 +117,7 @@ describe('VTabs Component', () => {
 	it('disallow override of the borderRight style of the selected tab, since it is determined by inkBarStyle', () => {
 		// confirm inkbar borderRight style on selected tab
 		const vtest = (
-			<VTabs value={1} inkBarStyle={{ width: 2, backgroundColor: 'pink', borderStyle: 'dotted' }}>
+			<VTabs value={1} inkBarStyle={{ borderWidth: 2, borderColor: 'pink', borderStyle: 'dotted' }}>
 				<VTab label="testlabel1">
 					<div>content</div>
 				</VTab>
