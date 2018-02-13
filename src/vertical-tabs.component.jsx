@@ -36,7 +36,7 @@ class VTabs extends React.Component {
 		const lineHeight = (tabLabelStyle && tabLabelStyle.lineHeight) || '34px';
 		
 		const indicator = { borderRight: `${borderWidth}px ${borderStyle} ${borderColor}`};
-		const independentTabLabelStyles = tab.props.tabLabelStyle;
+		const individualTabLabelStyles = tab.props.tabLabelStyle;
 
 		let comboStyle = {
 			textAlign: 'center',
@@ -48,7 +48,7 @@ class VTabs extends React.Component {
 				minHeight: 34
 			},
 			...tabLabelStyle,
-			...independentTabLabelStyles
+			...individualTabLabelStyles
 		};
 
 		if (this.state.selected === index) {
@@ -56,7 +56,7 @@ class VTabs extends React.Component {
 		}
 
 		return (
-			<div
+			<div id={`tabLabel${index}`}
 				key={index}
 				style={comboStyle}
 				onClick={this.onClick.bind(this, index)}>
@@ -83,25 +83,25 @@ class VTabs extends React.Component {
 		const { selected } = this.state;
 		const overrideWidth = (tabContainerStyle && tabContainerStyle.width) || '80%';
 
-		const independentTabContainerStyles = (children[selected] && children[selected].props && children[selected].props.tabContainerStyle);
+		const chile = children[selected] || children;
+		const individualTabContainerStyle = (chile.props && chile.props.tabContainerStyle);
+		const individualTabContainerOverrideWidth = (individualTabContainerStyle && individualTabContainerStyle.width);
 
 		const comboStyle = {
 			...tabContainerStyle,
+			...individualTabContainerStyle,
 			...{
 				position: 'absolute',
 				alignSelf: 'flex-end',
-				float: 'right'
-			},
-			...{
-				width: overrideWidth
-			},
-			...independentTabContainerStyles
+				float: 'right',
+				width: individualTabContainerOverrideWidth || overrideWidth
+			}
 		};
 
 		return (
-			<div
+			<div id="visibleTabContainer"
 				style={comboStyle}>
-				{children[selected]}
+				{chile}
 			</div>
 		);
 	}

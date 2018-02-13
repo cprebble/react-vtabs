@@ -5,7 +5,7 @@
 	  "browser": true,
 	  "node": true,
 	  "es6": true,
-	  "jest": true
+	  "mocha": true
 	},
   
 	"parserOptions": {
@@ -17,12 +17,22 @@
 	},
   
 	"plugins": [
-	  "react"
+	  "react",
+	  "mocha",
+	  "node"
 	],
 	"extends": ["eslint:recommended", "plugin:react/recommended"],
   
 	"rules": {
-	  "no-multiple-empty-lines": ["error", {"max": 2}],
-	  "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+		"no-multiple-empty-lines": ["error", {"max": 2}],
+		"react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+		"mocha/no-exclusive-tests": "error",
+		"node/no-extraneous-import": ["error", { "allowModules": [] }],
+		"node/no-extraneous-require": ["error", { "allowModules": [] }],
+		"node/no-missing-import": ["error", {
+			"allowModules": [],
+			"resolvePaths": ["src", "examples"],
+			"tryExtensions": [".js", ".jsx", ".json"]
+		}]
 	}
   }
