@@ -3,7 +3,7 @@ process.env.NODE_ENV = 'test';
 
 const { JSDOM } = require('jsdom');
 
-require('babel-register');
+require('babel-register')();
 
 const { configure } = require('enzyme');
 const Adapter = require('enzyme-adapter-react-16');
