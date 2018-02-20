@@ -13,7 +13,8 @@ class VTabs extends React.Component {
 		value: PropTypes.number,
 		tabContainerStyle: PropTypes.object,
 		tabLabelStyle: PropTypes.object,
-		inkBarStyle: PropTypes.object
+		inkBarStyle: PropTypes.object,
+		onTabSelect: PropTypes.func
 	};
 	
 	constructor (props) {
@@ -24,6 +25,10 @@ class VTabs extends React.Component {
 
 	onClick = (index) => {
 		this.setState({ selected: index });
+		const { onTabSelect } = this.props;
+		if (onTabSelect) {
+			onTabSelect(index);
+		}
 	}
 
 	renderTabLabel = (tab, index) => {
@@ -117,8 +122,7 @@ class VTabs extends React.Component {
 				flexDirection: 'column'
 			} };
 		return (
-			<div
-				style={comboStyle}>
+			<div style={comboStyle}>
 				{this.renderTabs()}
 				{this.renderTabContent()}
 			</div>

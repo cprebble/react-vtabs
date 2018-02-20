@@ -61,6 +61,8 @@ renderDOM(
 
 * value - optionally define the inital selected tab (zero based)
 
+* onTabSelect - optionally define a function that will be invoked when a tab is clicked, returns an index
+
 #### VTab properties
 * label - is required
 
