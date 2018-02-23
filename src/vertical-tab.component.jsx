@@ -3,7 +3,7 @@ import * as PropTypes from 'prop-types';
 
 function VTab (props) {
 	const { style, children } = props;
-
+	
 	return (
 		<div style={style}>
 			{children}
@@ -14,7 +14,7 @@ function VTab (props) {
 VTab.propTypes = {
 	style: PropTypes.object,
 	children: PropTypes.node.isRequired,
-	label: PropTypes.string.isRequired
+	label: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired
 }
 
 export default VTab;

@@ -242,6 +242,8 @@ describe('VTabs Component', () => {
 
 		assert.equal(pageWithProps.findVisibleTabContainerStyle().position, 'absolute');
 	});
+
+	it('should propogate tab click');
 });
 
 const pageObject = (component) => {
