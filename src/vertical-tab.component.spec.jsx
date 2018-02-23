@@ -36,7 +36,7 @@ describe('VTab Component', () => {
 			sinon.match('Warning: Failed prop type: The prop `label` is marked as required in `VTab`')
 		)).to.equal(true);
 	});
-	it('should allow a node style label, with an icon');
+
 });
 
 const pageObject = (component) => {

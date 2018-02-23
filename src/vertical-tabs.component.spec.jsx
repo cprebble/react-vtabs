@@ -243,7 +243,37 @@ describe('VTabs Component', () => {
 		assert.equal(pageWithProps.findVisibleTabContainerStyle().position, 'absolute');
 	});
 
-	it('should propogate tab click');
+	it('should allow a node style label, with an icon', () => {
+		const label = <span>test label node</span>;
+		const vtest = (
+			<VTabs>
+				<VTab label={label}>
+					<div>content</div>
+				</VTab>
+			</VTabs>
+		);
+		const wrapper = shallow(vtest);
+		const page = pageObject(wrapper);
+		assert.equal(page.findSelectedVTab().type, 'span');
+	});
+
+	it('should propogate tab click', () => {
+		let expectedIndex = -1;
+		const testClick = (index) => {
+			expectedIndex = index;
+		};
+		const vtest = (
+			<VTabs onTabSelect={testClick}>
+				<VTab label="label1">
+					<div>content</div>
+				</VTab>
+			</VTabs>
+		);
+		const wrapper = shallow(vtest);
+		const page = pageObject(wrapper);
+		page.clickTab(42);
+		assert.equal(expectedIndex, 42);
+	});
 });
 
 const pageObject = (component) => {
@@ -257,6 +287,7 @@ const pageObject = (component) => {
 		},
 		findSelectedVTab: () => component.find(VTab).prop('label'),
 		findVisibleTabContainerStyle: () => component.find('#visibleTabContainer').prop('style'),
-		findTabLabelStyle: atIndex => component.find(`#tabLabel${atIndex}`).at(0).prop('style')
+		findTabLabelStyle: atIndex => component.find(`#tabLabel${atIndex}`).at(0).prop('style'),
+		clickTab: ind => component.instance().onClick(ind)
 	};
 };
