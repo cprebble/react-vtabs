@@ -29,33 +29,42 @@ const citiesOfCulture = [
 		description: "Moab is the capital of mountain biking.",
 		tabLabelStyle: {
 			fontSize: 24,
-			fontStyle: 'italic'
+			fontStyle: 'normal'
 		},
 		tabContainerStyle: {
-			backgroundColor: 'blue'
+			width: 100,
+			paddingLeft: 50,
+			fontFamily: 'Verdana',
+			fontSize: '1.5em',
+			fontWeight: 'bold',
+			color: 'teal',
+			fontStyle: 'italic'
 		}
 	}
 ];
 
-const TAB_WIDTH = 200;
 const tabLabelStyle = {
 	paddingRight: 8,
-	width: TAB_WIDTH,
+	width: 200,
 	lineHeight: '64px',
 	textAlign: 'right',
 	fontFamily: 'Roboto, Helvetica Neue, Arial, sans-serif',
 	fontSize: 18,
 	fontWeight: 'bold',
-	background: 'linear-gradient(-170deg, white, lightgray)'
+	fontStyle: 'italic',
+	background: 'linear-gradient(-170deg, white, #f5f7fb)',
+	borderRadius: 6,
+	borderBottomRightRadius: 1,
+	borderTopRightRadius: 1,
+	borderRight: 'none'
 }
 export default class Cities extends React.Component {
 	render () {
 		return (
 			<VTabs
-				inkBarStyle={{ borderWidth: 6, borderColor: 'cornflowerblue' }}
+				inkBarStyle={{ borderWidth: 6, borderColor: 'teal' }}
 				tabLabelStyle={tabLabelStyle}
-				tabContainerStyle={{ width: `calc(90% - ${TAB_WIDTH}px)`, height: '100%' }}
-				style={{ margin: 10, padding: 24, height: '60vh', backgroundColor: 'lightgray' }}
+				style={{ margin: 10, padding: 24, height: '60vh', width: '60vw' }}
 				value={0}
 			>
 				{citiesOfCulture.map((edge, ii) => {

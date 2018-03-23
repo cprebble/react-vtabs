@@ -74,3 +74,5 @@ renderDOM(
 
 * node_modules/react-vtabs/dist/index.html
 
+![React VTabs](react-vtabs.gif)
+

@@ -6,9 +6,12 @@ import { VTabs, VTab } from '../src/index';
 export default class Examples extends React.Component {
 	render () {
 		return (
-			<div style={{ margin: 25 }}>
-				<VTabs>
-					<VTab label="Basic">
+			<div style={{
+				margin: 25,
+				fontFamily: "Roboto, sans-serif"
+			}}>
+				<VTabs tabLabelStyle={{ width: 120, textAlign: 'right', paddingRight: 8 }}>
+					<VTab label="Basic Example">
 						<Basic />
 					</VTab>
 					<VTab label="Cities">

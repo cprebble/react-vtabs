@@ -39,21 +39,21 @@ class VTabs extends React.Component {
 
 		const tabWidth = (tabLabelStyle && tabLabelStyle.width) || DEFAULT_WIDTH;
 		const lineHeight = (tabLabelStyle && tabLabelStyle.lineHeight) || '34px';
-		
+
 		const indicator = {...inkBarStyle, ...{ borderRight: `${borderWidth}px ${borderStyle} ${borderColor}` }};
 		const individualTabLabelStyles = tab.props.tabLabelStyle;
 
 		let comboStyle = {
+			borderRight: '1px solid lightgray',
+			width: tabWidth,
 			textAlign: 'center',
 			lineHeight: lineHeight,
+			...tabLabelStyle,
+			...individualTabLabelStyles,
 			...{
-				borderRight: '1px solid lightgray',
-				width: tabWidth,
 				minWidth: 34,
 				minHeight: 34
-			},
-			...tabLabelStyle,
-			...individualTabLabelStyles
+			}
 		};
 
 		if (this.state.selected === index) {
@@ -84,9 +84,11 @@ class VTabs extends React.Component {
 	}
 
 	renderTabContent = () => {
-		const { tabContainerStyle, children } = this.props;
+		const { tabContainerStyle, tabLabelStyle, children } = this.props;
 		const { selected } = this.state;
 		const overrideWidth = (tabContainerStyle && tabContainerStyle.width) || '80%';
+		const overrideMargin = (tabContainerStyle && tabContainerStyle.margin) || 12;
+		const tablabelWidth = (tabLabelStyle && tabLabelStyle.width) || DEFAULT_WIDTH;
 
 		const chile = children[selected] || children;
 		const individualTabContainerStyle = (chile.props && chile.props.tabContainerStyle);
@@ -96,10 +98,10 @@ class VTabs extends React.Component {
 			...tabContainerStyle,
 			...individualTabContainerStyle,
 			...{
+				display: 'flex',
 				position: 'absolute',
-				alignSelf: 'flex-end',
-				float: 'right',
-				width: individualTabContainerOverrideWidth || overrideWidth
+				width: individualTabContainerOverrideWidth || overrideWidth,
+				marginLeft: (tablabelWidth + overrideMargin)
 			}
 		};
 
@@ -117,7 +119,6 @@ class VTabs extends React.Component {
 		const comboStyle = {
 			...style,
 			...{
-				position: 'relative',
 				display: 'flex',
 				flexDirection: 'column'
 			} };
